@@ -10,7 +10,10 @@
     <div class="container">
       <div class="quiz__card">
         <p class="quiz__question">Question: <span>1/20</span></p>
-        <p class="quiz__question-text">angry</p>
+        <p class="quiz__question-text">
+          angry
+          <span>(n)</span>
+        </p>
       </div>
 
       <ul class="quiz__list">
@@ -21,9 +24,25 @@
       </ul>
     </div>
   </section>
+
+  {{ questions }}
+
+  <QuizModal v-if="false" />
 </template>
 
-<script setup></script>
+<script setup>
+// import {  onMounted } from "vue";
+import { useStore } from "vuex";
+import QuizModal from "../components/QuizModal.vue";
+
+const store = useStore();
+let questions = store.state["beginner"]["unit1"];
+
+console.log(questions);
+// const item = questions[Math.floor(Math.random() * questions.length)];
+
+// console.log(item);
+</script>
 
 <style lang="scss" scoped>
 .quiz {
@@ -59,7 +78,7 @@
   }
   &__card {
     position: absolute;
-    top: 28%;
+    top: 25%;
     left: 50%;
     transform: translateX(-50%);
     max-width: 250px;
@@ -83,9 +102,17 @@
   &__question-text {
     font-weight: 700;
     font-size: 18px;
+    word-wrap: break-word;
+
+    span {
+      font-style: italic;
+      font-size: 16px;
+      font-weight: 400;
+      color: orange;
+    }
   }
   &__list {
-    margin-top: 100px;
+    margin-top: 150px;
   }
   &__item {
     border: 2px solid rgb(237, 239, 248);
