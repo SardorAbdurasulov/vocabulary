@@ -6,11 +6,11 @@
 
     <div class="container">
       <ul class="book__units">
-        <li v-for="unit in 10" :key="unit" class="book__unit">
+        <li v-for="(unit, index) in Object.keys(units)" :key="index" class="book__unit">
           <router-link
             :to="{
-              name: 'Quiz',
-              params: { type: route.params.type, unit },
+              name: route.params.type,
+              params: { type: route.params.type, book: route.params.book, unit },
             }"
             class="book__link"
           >
@@ -20,7 +20,7 @@
                 src="../assets/img/list-svgrepo-com.svg"
                 alt="list"
               />
-              <p>Unit {{ unit }}</p>
+              <p>Unit {{ index + 1 }}</p>
             </div>
 
             <img
@@ -37,8 +37,12 @@
 
 <script setup>
 import { useRoute } from "vue-router";
+import { useStore } from "vuex";
 
 const route = useRoute();
+const store = useStore();
+
+let units = store.state[route.params.book];
 </script>
 
 <style lang="scss" scoped>

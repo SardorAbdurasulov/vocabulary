@@ -4,31 +4,41 @@
       <h2 class="modal__title">Select test of type:</h2>
       <div class="modal__buttons" :class="{ rowReverse: type }">
         <button class="modal__flag">
-          <img src="../assets/img/united-kingdom.png" alt="flag" />
+          <img src="@/assets/img/united-kingdom.png" alt="flag" />
           <span>Eng</span>
         </button>
 
         <button class="modal__flag">
-          <img src="../assets/img/uzbekistan.png" alt="flag" />
+          <img src="@/assets/img/uzbekistan.png" alt="flag" />
           <span>Uzb</span>
         </button>
       </div>
 
       <button class="modal__replacement" @click="replacement">
-        <img src="../assets/img/improvement-replacement.svg" alt="" />
+        <img src="@/assets/img/improvement-replacement.svg" alt="" />
       </button>
-      <button class="modal__config">Okay</button>
+      <button class="modal__config" @click="startQuiz">Start</button>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, defineEmits } from "vue";
 
 const type = ref(false);
+const language = ref("text_en");
+
+const emits = defineEmits(["language", "start"]);
 
 function replacement() {
   type.value = !type.value;
+  language.value === "text_en"
+    ? (language.value = "text_uz")
+    : (language.value = "text_en");
+  emits("language", language.value);
+}
+function startQuiz() {
+  emits("start");
 }
 </script>
 

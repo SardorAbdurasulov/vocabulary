@@ -8,61 +8,61 @@
         <li class="game__book">
           <router-link
             :to="{
-              name: 'Book',
-              params: { units: 'beginner', type: route.params.type },
+              name: 'Units',
+              params: { type: route.params.type, book: 'beginner' },
             }"
             class="game__link"
           >
-            <img src="../assets/img/navigate-a1.jpg" alt="book" />
+            <img src="@/assets/img/beginner.jpg" alt="book" />
             <p>Beginner</p>
           </router-link>
         </li>
         <li class="game__book">
           <router-link
             :to="{
-              name: 'Book',
-              params: { units: 'elementary', type: route.params.type },
+              name: 'Units',
+              params: { type: route.params.type, book: 'elemntary' },
             }"
             class="game__link"
           >
-            <img src="../assets/img/navigate-a2.jpg" alt="book" />
-            <p>Elementary</p>
+            <img src="@/assets/img/elemntary.jpg" alt="book" />
+            <p>Elemntary</p>
           </router-link>
         </li>
         <li class="game__book">
           <router-link
             :to="{
-              name: 'Book',
-              params: { units: 'pre-intermediate', type: route.params.type },
+              name: 'Units',
+              params: { type: route.params.type, book: 'preIntermediate' },
             }"
             class="game__link"
           >
-            <img src="../assets/img/navigate-b1.jpg" alt="book" />
-            <p>Pre Intermediate</p>
+            <img src="@/assets/img/preIntermediate.jpg" alt="book" />
+            <p>Pre-Intermediate</p>
           </router-link>
         </li>
         <li class="game__book">
           <router-link
             :to="{
-              name: 'Book',
-              params: { units: 'intermediate', type: route.params.type },
+              name: 'Units',
+              params: { type: route.params.type, book: 'intermediate' },
             }"
             class="game__link"
           >
-            <img src="../assets/img/navigate-b1+.jpg" alt="book" />
+            <img src="@/assets/img/intermediate.jpg" alt="book" />
             <p>Intermediate</p>
           </router-link>
         </li>
         <li class="game__book">
           <router-link
             :to="{
-              name: 'Book',
-              params: { units: 'upper-intermediate', type: route.params.type },
+              name: 'Units',
+              params: { type: route.params.type, book: 'upperIntermediate' },
             }"
             class="game__link"
           >
-            <img src="../assets/img/navigate-b2.jpg" alt="book" />
-            <p>Upper Intermediate</p>
+            <img src="@/assets/img/upperIntermediate.jpg" alt="book" />
+            <p>Upper-Intermediate</p>
           </router-link>
         </li>
       </ul>
@@ -72,7 +72,6 @@
 
 <script setup>
 import { useRoute } from "vue-router";
-
 const route = useRoute();
 </script>
 

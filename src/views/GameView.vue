@@ -1,15 +1,18 @@
 <template>
-  <section class="home">
-    <div class="home__data">
-      <router-link :to="{ name: 'Game' }" class="home__link">
-        <img src="@/assets/img/game-plugins-svgrepo-com.svg" alt="game" />
+  <section class="game">
+    <div class="game__data">
+      <router-link :to="{ name: 'Books', params: { type: 'test' } }" class="game__link">
+        <img src="@/assets/img/testing-svgrepo-com.svg" alt="testing" />
 
-        <p>Game</p>
+        <p>Test</p>
       </router-link>
 
-      <router-link to="#" class="home__link">
-        <img src="@/assets/img/homework-svgrepo-com.svg" alt="vocabulary" />
-        <p>Vocabulary</p>
+      <router-link
+        :to="{ name: 'Books', params: { type: 'writing' } }"
+        class="game__link"
+      >
+        <img src="@/assets/img/writing-hand-skin-1-svgrepo-com.svg" alt="writing" />
+        <p>Writing</p>
       </router-link>
     </div>
   </section>
@@ -17,8 +20,8 @@
 
 <script setup></script>
 
-<style lang="scss">
-.home {
+<style lang="scss" scoped>
+.game {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -47,7 +50,7 @@
       width: 80px;
       padding: 10px;
       background-color: rgb(108, 137, 255);
-      border-radius: 50%;
+      border-radius: 20px;
     }
     p {
       color: rgb(31, 47, 112);
