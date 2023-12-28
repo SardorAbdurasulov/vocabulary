@@ -2,13 +2,26 @@
   <section class="home">
     <div class="home__data">
       <router-link :to="{ name: 'Game' }" class="home__link">
-        <img src="@/assets/img/game-plugins-svgrepo-com.svg" alt="game" />
+        <img
+          src="@/assets/img/game-plugins-svgrepo-com.svg"
+          width="25"
+          height="25"
+          alt="game"
+        />
 
         <p>Game</p>
       </router-link>
 
-      <router-link to="#" class="home__link">
-        <img src="@/assets/img/homework-svgrepo-com.svg" alt="vocabulary" />
+      <router-link
+        :to="{ name: 'Books', params: { type: 'vocabulary' } }"
+        class="home__link"
+      >
+        <img
+          src="@/assets/img/homework-svgrepo-com.svg"
+          width="25"
+          height="25"
+          alt="vocabulary"
+        />
         <p>Vocabulary</p>
       </router-link>
     </div>

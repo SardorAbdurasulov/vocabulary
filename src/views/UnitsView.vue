@@ -10,14 +10,14 @@
           <router-link
             :to="{
               name: route.params.type,
-              params: { type: route.params.type, book: route.params.book, unit },
+              params: { book: route.params.book, unit },
             }"
             class="book__link"
           >
             <div class="book__data">
               <img
                 class="book__icon"
-                src="../assets/img/list-svgrepo-com.svg"
+                src="@/assets/img/list-svgrepo-com.svg"
                 alt="list"
               />
               <p>Unit {{ index + 1 }}</p>
@@ -25,7 +25,7 @@
 
             <img
               class="book__arrow"
-              src="../assets/img/right-arrow-svgrepo-com.svg"
+              src="@/assets/img/right-arrow-svgrepo-com.svg"
               alt="arrow right"
             />
           </router-link>

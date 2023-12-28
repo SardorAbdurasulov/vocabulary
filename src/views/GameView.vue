@@ -2,7 +2,12 @@
   <section class="game">
     <div class="game__data">
       <router-link :to="{ name: 'Books', params: { type: 'test' } }" class="game__link">
-        <img src="@/assets/img/testing-svgrepo-com.svg" alt="testing" />
+        <img
+          src="@/assets/img/testing-svgrepo-com.svg"
+          width="25"
+          height="25"
+          alt="testing"
+        />
 
         <p>Test</p>
       </router-link>
@@ -11,7 +16,12 @@
         :to="{ name: 'Books', params: { type: 'writing' } }"
         class="game__link"
       >
-        <img src="@/assets/img/writing-hand-skin-1-svgrepo-com.svg" alt="writing" />
+        <img
+          src="@/assets/img/writing-hand-skin-1-svgrepo-com.svg"
+          width="25"
+          height="25"
+          alt="writing"
+        />
         <p>Writing</p>
       </router-link>
     </div>

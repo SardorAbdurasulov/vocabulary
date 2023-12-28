@@ -16,6 +16,19 @@ body {
   font-family: "Poppins", sans-serif;
   background-color: #fff;
   transition: 0.5s;
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar {
+    width: 10px;
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+  }
 }
 
 ul {
