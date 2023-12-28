@@ -2,7 +2,6 @@
   <div class="result">
     <div class="result__container">
       <img class="result__crown" src="@/assets/img/crown.svg" alt="crown" />
-      <h2 class="result__title">You have finished the questions!</h2>
       <p class="result__total">
         Total Question: <span>{{ props.total }}</span>
       </p>
@@ -25,12 +24,12 @@
 
       <ul v-if="props.wrongs.length > 0" class="result__wrongs">
         <li v-for="(wrong, index) in props.wrongs" :key="index" class="result__item">
-          <p class="result__item-text">{{ wrong.text }}</p>
-          <p class="correct">{{ wrong.answer }}</p>
-          <p class="wrong">{{ wrong.worng }}</p>
-          <p>
-            {{ wrong.description }}
-          </p>
+          <QuizWrong
+            :text="wrong.text"
+            :answer="wrong.answer"
+            :worng="wrong.worng"
+            :description="wrong.description"
+          />
         </li>
       </ul>
 
@@ -40,13 +39,19 @@
 </template>
 
 <script setup>
-import { defineProps } from "vue";
+import { defineProps, onMounted } from "vue";
+import QuizWrong from "@/components/QuizWrong.vue";
 
 const props = defineProps({
   total: Number,
   correct: Number,
   wrong: Number,
   wrongs: Array,
+});
+
+onMounted(() => {
+  let favoriteData = JSON.parse(localStorage.getItem("favorites"));
+  if (!favoriteData) localStorage.setItem("favorites", JSON.stringify([]));
 });
 </script>
 
@@ -58,12 +63,13 @@ const props = defineProps({
   width: 100%;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
+  padding: 0 20px;
 
   &__container {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
-    max-width: 300px;
+    max-width: 400px;
     width: 100%;
     background-color: #fff;
     margin: auto;
@@ -75,15 +81,10 @@ const props = defineProps({
     width: 100px;
     margin: 0 auto;
   }
-  &__title {
-    text-align: center;
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
   &__total {
     text-align: center;
-    font-weight: 600;
-    font-size: 15px;
+    font-weight: 700;
+    font-size: 18px;
     margin-bottom: 20px;
 
     span {
@@ -144,10 +145,6 @@ const props = defineProps({
       font-size: 14px;
     }
   }
-  &__item-text {
-    font-size: 14px;
-    font-weight: 700;
-  }
   &__link {
     display: block;
     width: 100%;
@@ -162,11 +159,5 @@ const props = defineProps({
     cursor: pointer;
     border-radius: 10px;
   }
-}
-.correct {
-  color: greenyellow;
-}
-.wrong {
-  color: red;
 }
 </style>

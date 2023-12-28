@@ -5,7 +5,8 @@ import BooksView from "../views/BooksView.vue";
 import UnitsView from "../views/UnitsView.vue";
 import QuizView from "../views/QuizView.vue";
 import WritingView from "../views/WritingView.vue";
-import VocabularyView from "../views/VocabularyView.vue"
+import VocabularyView from "../views/VocabularyView.vue";
+import BrainView from '../views/BrainView.vue'
 
 const routes = [
   {
@@ -42,6 +43,11 @@ const routes = [
     path: "/game/vocabulary/:book/:unit",
     name: "vocabulary",
     component: VocabularyView,
+  },
+  {
+    path: "/brain",
+    name: "Brain",
+    component: BrainView,
   },
 ];
 

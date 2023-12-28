@@ -47,7 +47,7 @@ function nextQuestion() {
   let text = props.question.answer;
   if (text.trim().toLowerCase() === answer.value.trim().toLowerCase()) {
     currect.value = true;
-    emits("nextQuestion", true);
+    emits("nextQuestion", true, props.question.answer);
   } else {
     incurrect.value = true;
     emits("nextQuestion", {
