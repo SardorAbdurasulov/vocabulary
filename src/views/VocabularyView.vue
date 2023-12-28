@@ -54,8 +54,10 @@ let dictionaries = store.state[route.params.book][route.params.unit];
     max-width: 500px;
     width: 100%;
     margin: 0 auto;
+    padding: 0 20px;
   }
   &__item {
+    display: block;
     width: 100%;
     background-color: #80808033;
     padding: 15px;

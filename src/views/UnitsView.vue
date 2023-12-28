@@ -50,6 +50,8 @@ let units = store.state[route.params.book];
   margin-bottom: 20px;
 
   &__head {
+    position: fixed;
+    width: 100%;
     background-color: rgb(108, 137, 255);
     padding: 20px;
     margin-bottom: 20px;
@@ -57,6 +59,9 @@ let units = store.state[route.params.book];
   &__title {
     text-align: center;
     color: #fff;
+  }
+  &__units {
+    padding-top: 90px;
   }
   &__unit {
     background-color: rgb(237, 239, 248);

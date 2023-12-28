@@ -80,6 +80,8 @@ const route = useRoute();
   margin-bottom: 20px;
 
   &__head {
+    position: fixed;
+    width: 100%;
     background-color: rgb(108, 137, 255);
     padding: 20px;
     margin-bottom: 20px;
@@ -89,6 +91,7 @@ const route = useRoute();
     color: #fff;
   }
   &__books {
+    padding-top: 90px;
     display: grid;
     justify-content: space-between;
     gap: 10px;

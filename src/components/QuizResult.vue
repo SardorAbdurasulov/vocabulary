@@ -118,7 +118,7 @@ const props = defineProps({
     flex-direction: column;
     gap: 10px;
     margin-bottom: 10px;
-    height: 250px;
+    height: 200px;
     overflow-y: auto;
     padding-right: 5px;
 

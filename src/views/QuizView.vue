@@ -166,6 +166,7 @@ function startQuiz() {
   &__question {
     display: inline-block;
     width: 100%;
+    vertical-align: text-top;
   }
   &__data {
     display: flex;

@@ -20,9 +20,12 @@
         :class="{ currect: currect, incurrect: incurrect }"
         type="text"
         placeholder="Typing"
+        autocomplete="off"
       />
     </label>
-    <button class="writing__button" @click="nextQuestion">Next</button>
+    <button class="writing__button" @click="nextQuestion" :disabled="!answer.length">
+      Next
+    </button>
   </div>
 </template>
 
@@ -42,8 +45,7 @@ let incurrect = ref(false);
 
 function nextQuestion() {
   let text = props.question.answer;
-  answer.value.trim();
-  if (text.trim() === answer.value) {
+  if (text.trim().toLowerCase() === answer.value.trim().toLowerCase()) {
     currect.value = true;
     emits("nextQuestion", true);
   } else {
