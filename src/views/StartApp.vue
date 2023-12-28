@@ -101,18 +101,20 @@ function startApp() {
 
 <style lang="scss" scoped>
 .start {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
   padding: 0 40px;
 
   &__container {
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     max-width: 500px;
     width: 100%;
     border: 1px solid #808080;
     border-radius: 10px;
     padding: 20px;
+    margin-bottom: 30px;
   }
   &__title {
     text-align: center;

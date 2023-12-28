@@ -66,7 +66,7 @@ const route = useRoute();
   }
   &__link {
     display: block;
-    padding: 3px 6px;
+    padding: 3px 8px;
     border-radius: 50%;
     color: #808080;
     font-size: 20px;
