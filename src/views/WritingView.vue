@@ -1,7 +1,7 @@
 <template>
   <section class="writing">
     <div class="writing__head">
-      <h2 class="writing__title">Unit 1</h2>
+      <h2 class="writing__title">Unit {{ unit }}</h2>
     </div>
     <div class="writing__data">
       <h3>
@@ -78,6 +78,13 @@ function nextQuestion(value) {
     }, 500);
   }
 }
+
+const unit = computed(() => {
+  let unitIndex = Object.keys(store.state[route.params.book]).findIndex(
+    (index) => index === route.params.unit
+  );
+  return unitIndex + 1;
+});
 </script>
 
 <style lang="scss" scoped>

@@ -35,7 +35,13 @@
   <div v-if="modal" class="alert">
     <div class="alert__container">
       <button class="alert__close" @click="close">x</button>
-      <img class="alert__icon" src="@/assets/img/warning.svg" alt="writing" />
+      <img
+        class="alert__icon"
+        src="@/assets/img/warning.svg"
+        width="100"
+        height="100"
+        alt="writing"
+      />
       <h2 class="alert__title">Oh empty!</h2>
     </div>
   </div>
@@ -77,7 +83,6 @@ function close() {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 150px;
   }
   &__link {
     max-width: 300px;

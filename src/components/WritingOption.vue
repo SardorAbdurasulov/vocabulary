@@ -2,7 +2,7 @@
   <div class="writing__card">
     <p class="writing__questions-total">
       Question:
-      <span>{{ props.index }}/{{ props.questionIndex }}</span>
+      <span>{{ props.index + 1 }}/{{ props.questionIndex }}</span>
     </p>
     <p class="writing__question-text">
       {{ props.question.text_uz }}
