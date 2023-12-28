@@ -4,7 +4,9 @@
       <h2 class="writing__title">Memory</h2>
     </div>
     <div class="writing__data">
-      <h3>Your Score: <span>1</span></h3>
+      <h3>
+        Your Score: <span>{{ score }}</span>
+      </h3>
     </div>
     <div ref="container" class="writing__container">
       <div

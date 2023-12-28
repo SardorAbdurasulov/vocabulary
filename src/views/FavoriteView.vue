@@ -1,27 +1,23 @@
 <template>
-  <section class="vocabulary">
-    <div class="vocabulary__head">
-      <h2 class="vocabulary__title">Unit {{ unit }}</h2>
+  <section class="favorite">
+    <div class="favorite__head">
+      <h2 class="favorite__title">Favorites</h2>
     </div>
 
-    <ul class="vocabulary__list">
-      <li
-        v-for="dictionary in dictionaries"
-        :key="dictionary.id"
-        class="vocabulary__item"
-      >
+    <ul class="favorite__list">
+      <li v-for="(favorite, index) in favorites" :key="index" class="favorite__item">
         <div>
-          <p class="vocabulary__text">
+          <p class="favorite__text">
             <img src="@/assets/img/united-kingdom.png" alt="flag" />
-            {{ dictionary.text_en }} <span>({{ dictionary.key }})</span>
+            {{ favorite.answer }}
           </p>
-          <p class="vocabulary__text">
+          <p class="favorite__text">
             <img src="@/assets/img/uzbekistan.png" alt="flag" />
-            {{ dictionary.text_uz }}
+            {{ favorite.text_uz }}
           </p>
         </div>
-        <p class="vocabulary__description">
-          {{ dictionary.description }}
+        <p class="favorite__description">
+          {{ favorite.description }}
         </p>
       </li>
     </ul>
@@ -29,25 +25,19 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
-import { useStore } from "vuex";
-import { useRoute } from "vue-router";
+import { onMounted, ref } from "vue";
 
-const route = useRoute();
-const store = useStore();
-
-let dictionaries = store.state[route.params.book][route.params.unit];
-
-const unit = computed(() => {
-  let unitIndex = Object.keys(store.state[route.params.book]).findIndex(
-    (index) => index === route.params.unit
-  );
-  return unitIndex + 1;
+let favorites = ref([]);
+onMounted(() => {
+  let favoriteData = JSON.parse(localStorage.getItem("favorites"));
+  if (favoriteData) favorites.value = favoriteData;
 });
 </script>
 
 <style lang="scss" scoped>
-.vocabulary {
+.favorite {
+  margin-bottom: 120px;
+
   &__head {
     background-color: rgb(108, 137, 255);
     padding: 20px;

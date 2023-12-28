@@ -95,6 +95,7 @@ const route = useRoute();
     display: grid;
     justify-content: space-between;
     gap: 10px;
+    margin-bottom: 120px;
   }
   &__book {
     width: 100%;

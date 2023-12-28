@@ -26,9 +26,13 @@
       </router-link>
     </div>
   </section>
+
+  <NavMenu />
 </template>
 
-<script setup></script>
+<script setup>
+import NavMenu from "../components/NavMenu.vue";
+</script>
 
 <style lang="scss">
 .home {

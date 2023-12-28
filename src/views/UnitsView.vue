@@ -62,6 +62,7 @@ let units = store.state[route.params.book];
   }
   &__units {
     padding-top: 90px;
+    margin-bottom: 120px;
   }
   &__unit {
     background-color: rgb(237, 239, 248);

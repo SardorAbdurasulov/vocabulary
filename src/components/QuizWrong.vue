@@ -71,7 +71,11 @@ function addFavorite() {
   favorite.value = !favorite.value;
   let favoriteData = JSON.parse(localStorage.getItem("favorites"));
   if (!favorite.value) {
-    favoriteData.push({ text_uz: props.answer, answer: props.text });
+    favoriteData.push({
+      text_uz: props.answer,
+      answer: props.text,
+      description: props.description,
+    });
     localStorage.setItem("favorites", JSON.stringify(favoriteData));
   } else {
     let index = favoriteData.findIndex((item) => item.answer === props.text);

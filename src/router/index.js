@@ -6,7 +6,8 @@ import UnitsView from "../views/UnitsView.vue";
 import QuizView from "../views/QuizView.vue";
 import WritingView from "../views/WritingView.vue";
 import VocabularyView from "../views/VocabularyView.vue";
-import BrainView from '../views/BrainView.vue'
+import BrainView from "../views/BrainView.vue";
+import FavoriteView from "../views/FavoriteView.vue";
 
 const routes = [
   {
@@ -48,6 +49,11 @@ const routes = [
     path: "/brain",
     name: "Brain",
     component: BrainView,
+  },
+  {
+    path: "/favorite",
+    name: "Favorite",
+    component: FavoriteView,
   },
 ];
 

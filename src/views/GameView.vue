@@ -78,6 +78,7 @@ function close() {
   flex-direction: column;
   justify-content: center;
   height: 100vh;
+  margin-bottom: 60px;
 
   &__data {
     display: flex;
