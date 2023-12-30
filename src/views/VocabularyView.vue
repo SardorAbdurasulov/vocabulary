@@ -11,10 +11,18 @@
         class="vocabulary__item"
       >
         <div>
-          <p class="vocabulary__text">
-            <img src="@/assets/img/united-kingdom.png" alt="flag" />
-            {{ dictionary.text_en }} <span>({{ dictionary.key }})</span>
-          </p>
+          <div class="vocabulary__box">
+            <p class="vocabulary__text">
+              <img src="@/assets/img/united-kingdom.png" alt="flag" />
+              {{ dictionary.text_en }} <span>({{ dictionary.key }})</span>
+            </p>
+            <button
+              class="vocabulary__volume"
+              @click="speechText(dictionary.text_en, dictionary.description)"
+            >
+              <i class="bx bx-volume-full"></i>
+            </button>
+          </div>
           <p class="vocabulary__text">
             <img src="@/assets/img/uzbekistan.png" alt="flag" />
             {{ dictionary.text_uz }}
@@ -29,6 +37,7 @@
 </template>
 
 <script setup>
+import TTS from "text-to-speech-offline";
 import { computed } from "vue";
 import { useStore } from "vuex";
 import { useRoute } from "vue-router";
@@ -44,6 +53,13 @@ const unit = computed(() => {
   );
   return unitIndex + 1;
 });
+
+function speechText(eng, desc) {
+  TTS(eng, "en-GB", 1, 0.9);
+  setTimeout(() => {
+    TTS(desc, "en-GB", 1, 0.9);
+  }, 2000);
+}
 </script>
 
 <style lang="scss" scoped>
@@ -71,6 +87,19 @@ const unit = computed(() => {
     padding: 15px;
     border-radius: 10px;
     margin-bottom: 15px;
+  }
+  &__box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__volume {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 20px;
+    color: #1f2f70;
+    cursor: pointer;
   }
   &__text {
     display: flex;

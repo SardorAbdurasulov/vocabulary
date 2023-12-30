@@ -7,10 +7,19 @@
     <ul class="favorite__list">
       <li v-for="(favorite, index) in favorites" :key="index" class="favorite__item">
         <div>
-          <p class="favorite__text">
-            <img src="@/assets/img/united-kingdom.png" alt="flag" />
-            {{ favorite.answer }}
-          </p>
+          <div class="favorite__box">
+            <p class="favorite__text">
+              <img src="@/assets/img/united-kingdom.png" alt="flag" />
+              {{ favorite.answer }}
+            </p>
+
+            <button
+              class="favorite__volume"
+              @click="speechText(favorite.answer, favorite.description)"
+            >
+              <i class="bx bx-volume-full"></i>
+            </button>
+          </div>
           <p class="favorite__text">
             <img src="@/assets/img/uzbekistan.png" alt="flag" />
             {{ favorite.text_uz }}
@@ -25,6 +34,7 @@
 </template>
 
 <script setup>
+import TTS from "text-to-speech-offline";
 import { onMounted, ref } from "vue";
 
 let favorites = ref([]);
@@ -32,6 +42,13 @@ onMounted(() => {
   let favoriteData = JSON.parse(localStorage.getItem("favorites"));
   if (favoriteData) favorites.value = favoriteData;
 });
+
+function speechText(eng, desc) {
+  TTS(eng, "en-GB", 1, 0.9);
+  setTimeout(() => {
+    TTS(desc, "en-GB", 1, 0.9);
+  }, 2000);
+}
 </script>
 
 <style lang="scss" scoped>
@@ -61,6 +78,19 @@ onMounted(() => {
     padding: 15px;
     border-radius: 10px;
     margin-bottom: 15px;
+  }
+  &__box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__volume {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 20px;
+    color: #1f2f70;
+    cursor: pointer;
   }
   &__text {
     display: flex;
